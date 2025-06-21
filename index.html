@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DH密钥协商协议可视化演示</title>
+    <link rel="stylesheet" href="styles-dhke.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="node_modules/gsap/dist/gsap.min.js"></script>
+</head>
+<body>
+<nav class="side-nav">
+    <ul>
+        <li><a href="index.html">DH密钥交换</a></li>
+        <li><a href="ecdh.html">ECDH密钥交换</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <!-- 参数输入区 -->
+    <div class="control-panel">
+        <h2>参数设置</h2>
+        <div class="input-group">
+            <label for="input-p">素数 p:</label>
+            <input type="number" id="input-p" placeholder="输入大素数">
+            <button class="btn btn-secondary" onclick="generatePrime()">生成随机素数</button>
+        </div>
+        <div class="input-group">
+            <label for="input-g">生成元 g:</label>
+            <input type="number" id="input-g" placeholder="输入生成元">
+        </div>
+        <div class="input-group">
+            <label for="input-a">Alice私钥 a:</label>
+            <input type="number" id="input-a" placeholder="输入Alice的私钥">
+        </div>
+        <div class="input-group">
+            <label for="input-b">Bob私钥 b:</label>
+            <input type="number" id="input-b" placeholder="输入Bob的私钥">
+        </div>
+        <div class="button-group">
+            <button class="btn btn-primary" onclick="startProtocol()">开始演示</button>
+            <button class="btn btn-danger" onclick="reset()">重置</button>
+        </div>
+    </div>
+
+    <!-- 可视化展示区 -->
+    <div class="visualization-panel">
+        <div class="canvas-container" id="visualization"></div>
+        <div class="status-bar">
+            <div id="logs"></div>
+        </div>
+    </div>
+</div>
+<script src="dhke.js"></script>
+<script src="visualizer.js"></script>
+<script>
+    // 自动高亮当前导航
+    document.querySelectorAll('.side-nav a').forEach(link => {
+        if (link.getAttribute('href') === location.pathname.split('/').pop()) {
+            link.classList.add('active');
+        }
+    });
+</script>
+</body>
+</html>

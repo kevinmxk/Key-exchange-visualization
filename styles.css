@@ -1,0 +1,37 @@
+.side-nav {
+    width: 180px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: #f5f6fa;
+    border-right: 1px solid #e0e0e0;
+    padding-top: 40px;
+    z-index: 100;
+}
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.side-nav li {
+    margin: 0;
+    padding: 0;
+}
+.side-nav a {
+    display: block;
+    padding: 16px 24px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+}
+.side-nav a:hover {
+    background: #e0e7ff;
+    color: #3b82f6;
+}
+
+.side-nav a.active {
+    background: #e0e7ff;
+    color: #3b82f6;
+}

@@ -1,0 +1,639 @@
+/* 全局样式 */
+:root {
+    --primary-color: #2c3e50;     /* 深蓝 */
+    --secondary-color: #3498db;  /* 明亮蓝 */
+    --accent-color: #2ecc71;      /* 绿色 */
+    --background-light: #f8f9fa;
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: var(--text-dark);
+}
+
+
+/* 主容器布局 */
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 90vh;
+    margin-left: 180px;
+}
+
+/* 参数面板样式 */
+.control-panel {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dee2e6;
+}
+
+.control-panel h2 {
+    color: var(--primary-color);
+    margin: 0 0 25px 0;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+/* 输入组样式 */
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    padding: 10px 12px;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+    outline: none;
+}
+
+/* 按钮样式 */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    flex: 1;
+    min-width: 120px;
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #27ae60;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #2980b9;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: white;
+}
+
+/* 可视化区域 */
+.visualization-panel {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.canvas-container {
+    width: 100%;
+    height: 445px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    position: relative;
+}
+
+.canvas-container_ecdh {
+    width: 100%;
+    height: 520px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* 日志区域样式 */
+#logs {
+    width: 100%;
+    height: 250px;
+    overflow-y: auto;
+    padding: 0px;
+    background: var(--background-light);
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+/* 自定义滚动条样式 */
+#logs::-webkit-scrollbar {
+    width: 8px;
+}
+
+#logs::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#logs::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 4px;
+}
+
+#logs::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+/* 步骤指示器样式 */
+.step-indicator {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: white;
+    color: var(--text-dark);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--secondary-color);
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.step-indicator:last-child {
+    margin-bottom: 0;
+}
+
+/* 节点样式 */
+.node {
+    position: absolute;
+    background: white;
+    border: 2px solid var(--secondary-color);
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 180px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.alice-node {
+    border-color: #e74c3c;
+}
+
+.bob-node {
+    border-color: #f39c12;
+}
+
+.node-header {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 8px;
+}
+
+.node-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.private-key, .public-key, .shared-key {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    word-break: break-all;
+    line-height: 1.4;
+}
+
+.shared-key {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #dee2e6;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.key-value {
+    color: var(--secondary-color);
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.node.highlight {
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+    transform: scale(1.05);
+}
+
+.arrow-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.arrow-line {
+    stroke-dasharray: 10, 5;
+    animation: dash 2s linear infinite;
+}
+
+.arrow-head {
+    transition: all 0.3s ease;
+}
+
+.arrow-label {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+.params-display {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dee2e6;
+}
+
+.params-display h3 {
+    color: var(--primary-color);
+    margin: 0 0 15px 0;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 8px;
+}
+
+.param-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.param-label {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.param-value {
+    font-family: 'Courier New', monospace;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.input-group span#gx,
+.input-group span#gy {
+    font-family: 'Courier New', monospace;
+    color: var(--secondary-color);
+    font-weight: bold;
+    background: var(--background-light);
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+
+/* 新增动画样式 */
+
+/* 粒子效果 */
+.data-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #3498db;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: 0 0 10px #3498db;
+    animation: particleGlow 1.5s ease-out;
+}
+
+@keyframes particleGlow {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 10px #3498db;
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+        box-shadow: 0 0 20px #3498db;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+        box-shadow: 0 0 5px #3498db;
+    }
+}
+
+/* 进度条样式 */
+.protocol-progress {
+    position: absolute;
+    top: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid #dee2e6;
+    z-index: 1000;
+    min-width: 300px;
+}
+
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+/* 节点发光效果 */
+.node-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(46, 204, 113, 0.3) 0%, transparent 70%);
+    border-radius: 16px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+/* 3D变换效果 */
+.node {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.key-value {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+/* 进入动画 */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* 脉冲动画 */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.node.highlight {
+    animation: pulse 0.6s ease-in-out;
+}
+
+/* 成功动画 */
+@keyframes success {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.node.success {
+    animation: success 0.3s ease-out;
+}
+
+/* 椭圆曲线特殊样式 */
+.curve-info {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.curve-info h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+}
+
+.curve-equation {
+    font-family: 'Courier New', monospace;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+/* 响应式设计增强 */
+@media (max-width: 1024px) {
+    .protocol-progress {
+        min-width: 250px;
+        padding: 12px 15px;
+    }
+    
+    .node {
+        min-width: 160px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        margin-left: 0;
+    }
+
+    .control-panel {
+        order: 2;
+    }
+    
+    .protocol-progress {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-bottom: 15px;
+    }
+    
+    .node {
+        position: relative;
+        margin-bottom: 20px;
+        min-width: auto;
+    }
+    
+    .data-particle {
+        display: none; /* 在移动设备上隐藏粒子效果以提高性能 */
+    }
+}
+
+/* 侧边导航样式 */
+.side-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 160px;
+    height: 100vh;
+    background: var(--primary-color);
+    padding: 20px 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-nav li {
+    margin: 0;
+}
+
+.side-nav a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.side-nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: var(--secondary-color);
+}
+
+.side-nav a.active {
+    background: var(--secondary-color);
+    border-left-color: var(--accent-color);
+}
+
+/* 椭圆曲线可视化增强 */
+.ec-point {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 50;
+    transition: all 0.3s ease;
+}
+
+.ec-point.highlight {
+    transform: scale(1.5);
+    box-shadow: 0 4px 16px rgba(46, 204, 113, 0.6);
+}
+
+.ec-curve {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: 10;
+}
+
+/* 特殊ECDH动画 */
+@keyframes ecPointMove {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(10px, -10px) scale(1.2);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+.ec-point.animate {
+    animation: ecPointMove 2s ease-in-out infinite;
+}

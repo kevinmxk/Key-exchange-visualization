@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECDH密钥协商协议可视化演示</title>
+    <link rel="stylesheet" href="styles-ecdh.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="node_modules/gsap/dist/gsap.min.js"></script>
+</head>
+<body>
+<nav class="side-nav">
+    <ul>
+        <li><a href="index.html">DH密钥交换</a></li>
+        <li><a href="ecdh.html">ECDH密钥交换</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <!-- 参数输入区 -->
+    <div class="control-panel">
+        <h2>参数设置</h2>
+        <div class="input-group">
+            <label>素数p(16进制):</label>
+            <span id="p-value">e9</span>
+        </div>
+        <div class="input-group">
+            <label>曲线: </label>
+            <span>secp256k1</span>
+        </div>
+        <div class="input-group">
+            <label>椭圆方程: </label>
+            <span>y² = x³ + 7 (mod p)</span>
+        </div>
+        <div class="input-group">
+            <label>基点G(x): </label>
+            <span id="gx"></span>
+        </div>
+        <div class="input-group">
+            <label>基点G(y): </label>
+            <span id="gy"></span>
+        </div>
+        <div class="input-group">
+            <label for="input-a">Alice私钥 a:</label>
+            <input type="text" id="input-a" placeholder="输入Alice的私钥">
+            <button class="btn btn-secondary" onclick="generateAlicePriv()">生成随机私钥</button>
+        </div>
+        <div class="input-group">
+            <label for="input-b">Bob私钥 b:</label>
+            <input type="text" id="input-b" placeholder="输入Bob的私钥">
+            <button class="btn btn-secondary" onclick="generateBobPriv()">生成随机私钥</button>
+        </div>
+        <div class="button-group">
+            <button class="btn btn-primary" onclick="startProtocol()">开始演示</button>
+            <button class="btn btn-danger" onclick="reset()">重置</button>
+        </div>
+    </div>
+
+    <!-- 可视化展示区 -->
+    <div class="visualization-panel">
+        <div class="canvas-container_ecdh" id="visualization"></div>
+        <div class="status-bar">
+            <div id="logs"></div>
+        </div>
+    </div>
+</div>
+<script src="ecdh.js"></script>
+<script src="ecdh-visualizer.js"></script>
+<script>
+    // 展示参数
+    document.getElementById('p-value').textContent = window.EC_PARAMS.p.toString(16);
+    document.getElementById('gx').textContent = window.EC_PARAMS.Gx.toString(16);
+    document.getElementById('gy').textContent = window.EC_PARAMS.Gy.toString(16);
+
+    // 生成私钥按钮
+    window.generateAlicePriv = function() {
+        document.getElementById('input-a').value = window.generatePrivateKey().toString(16);
+    }
+    window.generateBobPriv = function() {
+        document.getElementById('input-b').value = window.generatePrivateKey().toString(16);
+    }
+    // 自动高亮当前导航
+    document.querySelectorAll('.side-nav a').forEach(link => {
+        if (link.getAttribute('href') === location.pathname.split('/').pop()) {
+            link.classList.add('active');
+        }
+    });
+</script>
+</body>
+</html>
