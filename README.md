@@ -1,122 +1,122 @@
-# ÃÜÂë½»»»Ð­Òé¿ÉÊÓ»¯ÑÝÊ¾£¨DHKEºÍECDH£©
+# å¯†ç äº¤æ¢åè®®å¯è§†åŒ–æ¼”ç¤ºï¼ˆDHKEå’ŒECDHï¼‰
 
-±¾ÏîÄ¿Îª Diffie-Hellman ÃÜÔ¿½»»»£¨DHKE£©ºÍÍÖÔ²ÇúÏß Diffie-Hellman£¨ECDH£©Ð­ÒéµÄ¿ÉÊÓ»¯ÑÝÊ¾£¬Åä±¸·á¸»¶¯»­Ð§¹û£¬ÊÊºÏ½ÌÑ§¡¢ÑÝÊ¾ºÍÑ§Ï°ÃÜÂëÑ§Ô­Àí¡£
-
----
-
-## ? ¹¦ÄÜÁÁµã
-
-- **Á£×ÓÏµÍ³**£ºÄ£ÄâÊý¾ÝÁ÷¶¯£¬Õ¹Ê¾¹«Ô¿½»»»¹ý³Ì
-- **½ø¶ÈÖ¸Ê¾Æ÷**£ºÊµÊ±ÏÔÊ¾Ð­ÒéÖ´ÐÐ½ø¶ÈºÍ×´Ì¬
-- **3D ¶¯»­**£º½Úµã¡¢ÃÜÔ¿¡¢²ÎÊýµÈ¾ùÓÐìÅ¿á¶¯»­
-- **¸ßÁÁÓëÂö³å**£ºµ±Ç°½Úµã¸ßÁÁ£¬Ð­ÒéÍê³ÉÓÐ·´À¡¶¯»­
-- **Á÷³©¹ý¶É**£º»ùÓÚ GSAP ¶¯»­¿â£¬ÌåÑéË¿»¬
-- **ÏìÓ¦Ê½Éè¼Æ**£º¼æÈÝ×ÀÃæÓëÒÆ¶¯¶Ë£¬×Ô¶¯ÊÊÅäÐÔÄÜ
+æœ¬é¡¹ç›®ä¸º Diffie-Hellman å¯†é’¥äº¤æ¢ï¼ˆDHKEï¼‰å’Œæ¤­åœ†æ›²çº¿ Diffie-Hellmanï¼ˆECDHï¼‰åè®®çš„å¯è§†åŒ–æ¼”ç¤ºï¼Œé…å¤‡ä¸°å¯ŒåŠ¨ç”»æ•ˆæžœï¼Œé€‚åˆæ•™å­¦ã€æ¼”ç¤ºå’Œå­¦ä¹ å¯†ç å­¦åŽŸç†ã€‚
 
 ---
 
-## ? ÏîÄ¿½á¹¹
+## âœ¨ åŠŸèƒ½äº®ç‚¹
+
+- **ç²’å­ç³»ç»Ÿ**ï¼šæ¨¡æ‹Ÿæ•°æ®æµåŠ¨ï¼Œå±•ç¤ºå…¬é’¥äº¤æ¢è¿‡ç¨‹
+- **è¿›åº¦æŒ‡ç¤ºå™¨**ï¼šå®žæ—¶æ˜¾ç¤ºåè®®æ‰§è¡Œè¿›åº¦å’ŒçŠ¶æ€
+- **3D åŠ¨ç”»**ï¼šèŠ‚ç‚¹ã€å¯†é’¥ã€å‚æ•°ç­‰å‡æœ‰ç‚«é…·åŠ¨ç”»
+- **é«˜äº®ä¸Žè„‰å†²**ï¼šå½“å‰èŠ‚ç‚¹é«˜äº®ï¼Œåè®®å®Œæˆæœ‰åé¦ˆåŠ¨ç”»
+- **æµç•…è¿‡æ¸¡**ï¼šåŸºäºŽ GSAP åŠ¨ç”»åº“ï¼Œä½“éªŒä¸æ»‘
+- **å“åº”å¼è®¾è®¡**ï¼šå…¼å®¹æ¡Œé¢ä¸Žç§»åŠ¨ç«¯ï¼Œè‡ªåŠ¨é€‚é…æ€§èƒ½
+
+---
+
+## ðŸ“ é¡¹ç›®ç»“æž„
 
 ```
-©À©¤©¤ index.html              # DHKE ÑÝÊ¾Ò³Ãæ
-©À©¤©¤ ecdh.html               # ECDH ÑÝÊ¾Ò³Ãæ
-©À©¤©¤ demo.html               # ¶¯»­Ð§¹ûÑÝÊ¾Ò³Ãæ
-©À©¤©¤ visualizer.js           # DHKE ¿ÉÊÓ»¯Ö÷Âß¼­
-©À©¤©¤ ecdh-visualizer.js      # ECDH ¿ÉÊÓ»¯Ö÷Âß¼­
-©À©¤©¤ styles-dhke.css         # DHKE ÑùÊ½
-©À©¤©¤ styles-ecdh.css         # ECDH ÑùÊ½
-©À©¤©¤ styles.css              # Í¨ÓÃÑùÊ½
-©À©¤©¤ dhke.js                 # DHKE Ëã·¨ÊµÏÖ
-©À©¤©¤ ecdh.js                 # ECDH Ëã·¨ÊµÏÖ
-©À©¤©¤ LICENSE                 # ¿ªÔ´Ðí¿ÉÖ¤
-©¸©¤©¤ README.md               # ÏîÄ¿ËµÃ÷
+â”œâ”€â”€ index.html              # DHKE æ¼”ç¤ºé¡µé¢
+â”œâ”€â”€ ecdh.html               # ECDH æ¼”ç¤ºé¡µé¢
+â”œâ”€â”€ demo.html               # åŠ¨ç”»æ•ˆæžœæ¼”ç¤ºé¡µé¢
+â”œâ”€â”€ visualizer.js           # DHKE å¯è§†åŒ–ä¸»é€»è¾‘
+â”œâ”€â”€ ecdh-visualizer.js      # ECDH å¯è§†åŒ–ä¸»é€»è¾‘
+â”œâ”€â”€ styles-dhke.css         # DHKE æ ·å¼
+â”œâ”€â”€ styles-ecdh.css         # ECDH æ ·å¼
+â”œâ”€â”€ styles.css              # é€šç”¨æ ·å¼
+â”œâ”€â”€ dhke.js                 # DHKE ç®—æ³•å®žçŽ°
+â”œâ”€â”€ ecdh.js                 # ECDH ç®—æ³•å®žçŽ°
+â”œâ”€â”€ LICENSE                 # å¼€æºè®¸å¯è¯
+â””â”€â”€ README.md               # é¡¹ç›®è¯´æ˜Ž
 ```
 
 ---
 
-## ? ¿ìËÙ¿ªÊ¼
+## ðŸš€ å¿«é€Ÿå¼€å§‹
 
-### 1. ¿ËÂ¡ÏîÄ¿
+### 1. å…‹éš†é¡¹ç›®
 
 ```bash
-git clone https://github.com/ÄãµÄÓÃ»§Ãû/your-repo-name.git
+git clone https://github.com/ä½ çš„ç”¨æˆ·å/your-repo-name.git
 cd your-repo-name
 ```
 
-### 2. °²×°ÒÀÀµ£¨¿ÉÑ¡£¬½ö±¾µØ¿ª·¢/GSAP±¾µØÒýÓÃÊ±£©
+### 2. å®‰è£…ä¾èµ–ï¼ˆå¯é€‰ï¼Œä»…æœ¬åœ°å¼€å‘/GSAPæœ¬åœ°å¼•ç”¨æ—¶ï¼‰
 
 ```bash
 npm install
 ```
 
-### 3. Æô¶¯±¾µØ·þÎñÆ÷
+### 3. å¯åŠ¨æœ¬åœ°æœåŠ¡å™¨
 
-Äã¿ÉÒÔÓÃÈÎÒâ HTTP ·þÎñÆ÷£¨Èç Python¡¢Node.js serve£©£º
+ä½ å¯ä»¥ç”¨ä»»æ„ HTTP æœåŠ¡å™¨ï¼ˆå¦‚ Pythonã€Node.js serveï¼‰ï¼š
 
 ```bash
 # Python 3
 python -m http.server 8000
-# »ò Node.js
+# æˆ– Node.js
 npx serve .
 ```
 
-### 4. ´ò¿ªä¯ÀÀÆ÷·ÃÎÊ
+### 4. æ‰“å¼€æµè§ˆå™¨è®¿é—®
 
-- DHKE ÑÝÊ¾£º[http://localhost:8000/index.html](http://localhost:8000/index.html)
-- ECDH ÑÝÊ¾£º[http://localhost:8000/ecdh.html](http://localhost:8000/ecdh.html)
-- ¶¯»­ÑÝÊ¾£º[http://localhost:8000/demo.html](http://localhost:8000/demo.html)
-
----
-
-## ?? ¼¼ÊõÊµÏÖ
-
-- **ºËÐÄ¶¯»­**£ºGSAP£¨[CDN](https://cdnjs.com/libraries/gsap) »ò±¾µØÒÀÀµ¾ù¿É£©
-- **Ö÷ÒªÀà**£º
-  - `ParticleSystem`£ºÁ£×Ó¶¯»­
-  - `ProgressBar`£º½ø¶ÈÌõ¶¯»­
-- **×Ô¶¨ÒåÅäÖÃ**£ºÁ£×ÓÊýÁ¿¡¢¶¯»­Ê±³¤¡¢ÑÕÉ«µÈ¾ù¿ÉÔÚ JS/CSS ÖÐµ÷Õû
+- DHKE æ¼”ç¤ºï¼š[http://localhost:8000/index.html](http://localhost:8000/index.html)
+- ECDH æ¼”ç¤ºï¼š[http://localhost:8000/ecdh.html](http://localhost:8000/ecdh.html)
+- åŠ¨ç”»æ¼”ç¤ºï¼š[http://localhost:8000/demo.html](http://localhost:8000/demo.html)
 
 ---
 
-## ? ¹ú¼Ê»¯Óë¼æÈÝÐÔ
+## ðŸ› ï¸ æŠ€æœ¯å®žçŽ°
 
-- **½çÃæÓïÑÔ**£ºµ±Ç°ÎªÖÐÎÄ£¬»¶Ó­¹±Ï×Ó¢ÎÄ/¶àÓïÑÔÖ§³Ö
-- **ä¯ÀÀÆ÷¼æÈÝ**£º
+- **æ ¸å¿ƒåŠ¨ç”»**ï¼šGSAPï¼ˆ[CDN](https://cdnjs.com/libraries/gsap) æˆ–æœ¬åœ°ä¾èµ–å‡å¯ï¼‰
+- **ä¸»è¦ç±»**ï¼š
+  - `ParticleSystem`ï¼šç²’å­åŠ¨ç”»
+  - `ProgressBar`ï¼šè¿›åº¦æ¡åŠ¨ç”»
+- **è‡ªå®šä¹‰é…ç½®**ï¼šç²’å­æ•°é‡ã€åŠ¨ç”»æ—¶é•¿ã€é¢œè‰²ç­‰å‡å¯åœ¨ JS/CSS ä¸­è°ƒæ•´
+
+---
+
+## ðŸŒ å›½é™…åŒ–ä¸Žå…¼å®¹æ€§
+
+- **ç•Œé¢è¯­è¨€**ï¼šå½“å‰ä¸ºä¸­æ–‡ï¼Œæ¬¢è¿Žè´¡çŒ®è‹±æ–‡/å¤šè¯­è¨€æ”¯æŒ
+- **æµè§ˆå™¨å…¼å®¹**ï¼š
   - Chrome 60+
   - Firefox 55+
   - Safari 12+
   - Edge 79+
-  - IE 11£¨²¿·Ö¹¦ÄÜÊÜÏÞ£©
+  - IE 11ï¼ˆéƒ¨åˆ†åŠŸèƒ½å—é™ï¼‰
 
 ---
 
-## ? ÐÔÄÜÓÅ»¯
+## âš¡ æ€§èƒ½ä¼˜åŒ–
 
-- ÒÆ¶¯¶Ë×Ô¶¯½µ¼¶¶¯»­¸´ÔÓ¶È
-- ¶¯»­½ÚÁ÷ÓëÄÚ´æ¹ÜÀí
-- Á£×ÓÊýÁ¿×ÔÊÊÓ¦ÆÁÄ»
-
----
-
-## ? ¹±Ï×Ö¸ÄÏ
-
-»¶Ó­Ìá½» Issue ºÍ Pull Request£¡
-
-1. Fork ±¾²Ö¿â
-2. ´´½¨¹¦ÄÜ·ÖÖ§
-3. Ìá½»¸ü¸Ä
-4. ´´½¨ Pull Request
+- ç§»åŠ¨ç«¯è‡ªåŠ¨é™çº§åŠ¨ç”»å¤æ‚åº¦
+- åŠ¨ç”»èŠ‚æµä¸Žå†…å­˜ç®¡ç†
+- ç²’å­æ•°é‡è‡ªé€‚åº”å±å¹•
 
 ---
 
-## ? ÖÂÐ»
+## ðŸ¤ è´¡çŒ®æŒ‡å—
 
-- [GSAP](https://greensock.com/gsap/) - JavaScript ¶¯»­¿â
-- [MDN Web Docs](https://developer.mozilla.org/) - Web ¿ª·¢ÎÄµµ
-- ÃÜÂëÑ§ÉçÇø - Ëã·¨ÊµÏÖ²Î¿¼
+æ¬¢è¿Žæäº¤ Issue å’Œ Pull Requestï¼
+
+1. Fork æœ¬ä»“åº“
+2. åˆ›å»ºåŠŸèƒ½åˆ†æ”¯
+3. æäº¤æ›´æ”¹
+4. åˆ›å»º Pull Request
 
 ---
 
-> **½ö¹©Ñ§Ï°ºÍ½ÌÑ§ÓÃÍ¾£¬ÇëÎðÓÃÓÚÉú²ú»·¾³»ò°²È«Ãô¸Ð³¡¾°¡£**
+## ðŸ™ è‡´è°¢
+
+- [GSAP](https://greensock.com/gsap/) - JavaScript åŠ¨ç”»åº“
+- [MDN Web Docs](https://developer.mozilla.org/) - Web å¼€å‘æ–‡æ¡£
+- å¯†ç å­¦ç¤¾åŒº - ç®—æ³•å®žçŽ°å‚è€ƒ
+
+---
+
+> **ä»…ä¾›å­¦ä¹ å’Œæ•™å­¦ç”¨é€”ï¼Œè¯·å‹¿ç”¨äºŽç”Ÿäº§çŽ¯å¢ƒæˆ–å®‰å…¨æ•æ„Ÿåœºæ™¯ã€‚**
 
 Enjoy this enhanced cryptographic protocol visualization! ?
